@@ -1,0 +1,8 @@
+.sec-body {
+    width: calc(100% - 250px);
+    background-color: aquamarine;
+    float: right;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

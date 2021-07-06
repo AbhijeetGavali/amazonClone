@@ -1,0 +1,28 @@
+.category {
+    position: sticky;
+    top: 10vh;
+    min-height: 90vh;
+    padding: 15px 20px;
+    text-align: center;
+    width: 250px;
+    float: left;
+    background-color: rgb(123, 121, 255);
+}
+
+.category h3 {
+    font-size: 28px;
+}
+
+.category .categories li {
+    list-style: none;
+}
+
+.category .categories .item {
+    background-color: transparent;
+    width: 100%;
+    padding: 10px 0;
+    font-size: 20px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}

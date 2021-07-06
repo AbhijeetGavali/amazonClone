@@ -1,0 +1,10 @@
+#accountBox {
+    display: flex;
+    z-index: 1;
+    height: 300px;
+    width: 230px;
+    background-color: aqua;
+    position: fixed;
+    top: 9vh;
+    right: 30px;
+}

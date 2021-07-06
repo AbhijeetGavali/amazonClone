@@ -1,0 +1,30 @@
+    #hero-sec {
+        height: 60vh;
+        background-color: rgb(255, 126, 126);
+        background-image: url('../img/hero.jpg');
+        background-blend-mode: darken;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    #hero-sec div {
+        align-self: center;
+        text-align: center;
+        font-size: 35px;
+        color: aliceblue;
+    }
+    
+    #hero-sec div .btn {
+        outline: none;
+        padding: 8px 18px;
+        background-color: rgb(30, 204, 59);
+        border: 2px solid rgb(160, 255, 51);
+        border-radius: 30px;
+        cursor: pointer;
+        margin: 3px 10px;
+        font-size: 16px;
+    }

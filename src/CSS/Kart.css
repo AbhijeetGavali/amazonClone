@@ -1,0 +1,11 @@
+#kartBox {
+    position: fixed;
+    top: 8vh;
+    right: 80px;
+    background-color: aqua;
+    max-height: 80vh;
+    overflow-y: auto;
+    width: 300px;
+    height: 50vh;
+    z-index: 1;
+}

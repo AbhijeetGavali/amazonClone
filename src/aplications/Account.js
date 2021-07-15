@@ -1,34 +1,48 @@
 import React, { useState } from 'react'
+import { BrowserRouter as Router } from "react-router-dom";
+import { Redirect } from 'react-router-dom'
+
 import '../CSS/Account.css'
 
-export default function Account(props) {
-    const [user, setUser] = useState(false)
-    const [login, setLogin] = useState(false)
-    let subTotal = 0;
+import DashBoard from './DashBoard'
+import ForgotPassword from './ForgotPassword'
+import LoginFunction from './LoginFunction'
+import RegisterFunction from './RegisterFunction'
 
-    function getPassword  () {
-        var x = 1;
-    }
-    return (
-        <div id="accountBox">
+export default function Account(props) {
+    // setting variables for use
+    const [login, setLogin] = useState(false)
+    const [forgotPassword, setForgotPassword] = useState(false)
+    const [register, setRegister] = useState(false)
+
+
+    return (<Router>
+        <Redirect to='/account' />
+        <div>
             {
-                user ? <>
-                    Hello world
-                </>
-                    : login ? <>
-                        <input type="email" name="loginMail" id="loginMail" />
-                        <input type="password" name="loginPassword" id="loginPassword" />
-                        <p onClick={getPassword}>forgot password ?</p>
-                        <button type="button" className="btn" onClick={() => { setUser(true) }}>Login</button>
-                    </>
-                        : <>
-                            <h3>Hello</h3>
-                            <p>Already a customer ?</p>
-                            <button type="button" className="btn" onClick={() => { setLogin(true) }}>Sign in</button>
-                            <p>New customer ?</p>
-                            <button type="button" className="btn" onClick={props.close}>Sign Up</button>
-                        </>
+                // dashbord renderning 
+                props.userID !== "" ? <DashBoard close={props.close} userID={props.userID} setUserID={props.setUserID}  userMail={props.userMail} userName={props.userName} />
+
+                    // forgot password 
+                    : forgotPassword ? <ForgotPassword login={setForgotPassword} />
+
+                        // login of  user
+                        : login ? <LoginFunction setUserID={props.setUserID} setUserName={props.setUserName} setUserMail={props.setUserMail} setForgotPassword={setForgotPassword} />
+
+                            // registration of the user
+                            : register ? <RegisterFunction setLogin={setLogin} />
+
+                                // New customer dashboard
+                                : <div className="accountBox">
+                                    < div className="wlcLogin">
+                                        <h3>Hello,</h3>
+                                        <p>Already a customer ?</p>
+                                        <button type="button" className="btn" onClick={() => { setLogin(true) }}>Sign in</button>
+                                        <p>New customer ?</p>
+                                        <button type="button" className="btn" onClick={() => { setRegister(true) }}>Sign Up</button>
+                                    </div>
+                                </div>
             }
         </div>
-    );
+    </Router>);
 };

@@ -1,4 +1,8 @@
+// https://www.npmjs.com/package/emailjs
+
 const router = require('express').Router();
+const emailjs = require('emailjs-com');
+const init = require('emailjs-com').init;
 let User = require('../updateDatabase/user.model');
 let ShppingDetail = require('../updateDatabase/shppingDetail.model')
 let CartDetail = require('../updateDatabase/cart.model')
@@ -6,10 +10,35 @@ let PaymentDetail = require('../updateDatabase/payment.model')
 
 // route for login of users 
 router.route('/account/login').post((req, res) => {
-
     // getting all parameters in variable for use 
     let userEmail = req.body.user_Email
     let userPassword = req.body.user_Password
+
+    // GETTING CREDINTIAL OF THAT USETR 
+    User.findOne({ user_Email: userEmail })
+        .then(user => {
+            // if user does not exits 
+            if (user === null) {
+                res.send('notFound')
+            }
+
+            // if user exists
+            else {
+                if (user['user_Password'] === userPassword) {
+                    res.json(user)
+                } else {
+                    res.send('Found');
+                };
+            }
+        })
+        .catch(err => res.status(400).send('Error'));
+});
+
+// route for resetting password of users 
+router.route('/account/forget-password').post((req, res) => {
+
+    // getting all parameters in variable for use 
+    let userEmail = req.body.user_Email
 
     // GETTING CREDINTIAL OF THAT USETR 
     User.findOne({ user_Email: userEmail })
@@ -21,17 +50,32 @@ router.route('/account/login').post((req, res) => {
 
             // if user exists
             else {
-                if (user['user_Password'] === userPassword) {
-                    res.json(user)
-                }
-                else {
-                    res.send('Enter valid credintials !');
+                // object for sendnig email 
+                var forgotuser = {
+                    name: user.user_FirstName + user.user_LastName,
+                    email: user.user_Email,
+                    subject: 'your have asked for password',
+                    message: user.user_Password
                 };
-            }
-        })
-        .catch(err => res.status(400).json('Error'));
-});
 
+                // sending email 
+                init("user_LdXRrREFsKKXRkZhIHonk");
+                emailjs.send('hello', 'email_start_conversation', forgotuser)
+                    // email send sucssesfully
+                    .then(function(response) {
+                            res.send('Password for this User has send to this email');
+                        },
+                        // email not send
+                        function(error) {
+                            res.send('Error accord during sending Password for User with this email.');
+                            console.log(error);
+                        });
+
+            };
+
+        })
+        .catch(err => res.status(400).send('Error'));
+});
 
 // route for registration of users 
 router.route('/account/register').post((req, res) => {
@@ -59,7 +103,7 @@ router.route('/account/register').post((req, res) => {
                     .then(() => {
                         res.send('You have Registor sucssesfully')
                     })
-                    .catch(err => res.status(400).json('Error : ' + err));
+                    .catch(err => res.status(400).send('Error'));
             } else {
                 // declairing if user alredy exist with the same email 
                 res.send('user already exist with this email.');

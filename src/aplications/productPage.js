@@ -4,9 +4,9 @@ export default function ProductPage(props) {
 
     return (<>
         <div id={props.props.src} className="ProductPage">
-            <img className="img" src={props.props.src} />
+            <img className="img" src={props.props.src}  alt={props.props.productName}/>
             <div className="contain">
-                <button type="button" onClick={props.functionClosed}>&times;</button>
+                <button type="button" className="btn" onClick={props.functionClosed}>&times;</button>
                 <div className="desc">
                     <h3>{props.props.productName}</h3>
                     <span>{props.props.price}</span>

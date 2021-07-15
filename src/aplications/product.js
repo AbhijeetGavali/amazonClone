@@ -12,7 +12,7 @@ export default function Product(props) {
     }
     return (<>
     <div id="product" onClick={click}>
-        <div className="productImg"><img className="img" src={props.src}/></div>
+        <div className="productImg"><img className="img" src={props.src} alt={props.productName} /></div>
         <div className="productDesc">
             <div className="product-price">{props.price}</div>
             <div className="product-desc">

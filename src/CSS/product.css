@@ -1,12 +1,12 @@
 #product {
-    width: 250px;
+    width: 23%;
     margin: 15px auto;
     cursor: pointer;
 }
 
 #product .productImg .img {
-    width: 250px;
-    height: 250px;
+    width: 100%;
+    height: 150px;
     border-radius: 10px;
 }
 
@@ -16,12 +16,19 @@
 }
 
 #product .productDesc .product-price {
-    padding: 12px 20px;
+    width: 30%;
+    height: min-content;
+    margin: auto 0px;
+    text-align: center;
     font-size: 22px;
 }
 
 #product .productDesc .product-desc h1 {
     font-size: 22px;
+}
+
+#product .productDesc .product-desc p {
+    text-align: justify;
 }
 
 .ProductPage {
@@ -117,4 +124,116 @@
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 11;
     cursor: pointer;
+}
+
+@media screen and (max-width:1024px) {
+    #product .productDesc .product-price {
+        font-size: 16px;
+    }
+    #product .productDesc .product-desc h1 {
+        font-size: 18px;
+    }
+    #product .productDesc .product-desc p {
+        text-align: justify;
+        font-size: 13px;
+    }
+    .ProductPage {
+        padding: 10px;
+        width: 80%;
+        height: 80%;
+    }
+    .ProductPage .img {
+        float: left;
+        width: 37%;
+        height: auto;
+    }
+    .ProductPage .contain {
+        width: 58%;
+    }
+    .ProductPage .contain .desc {
+        padding: 20px;
+    }
+    .ProductPage .contain .desc h3 {
+        font-size: 24px;
+    }
+    .ProductPage .contain .desc span {
+        font-size: 20px;
+        padding: 15px 10px;
+    }
+    .ProductPage .contain .desc p {
+        font-size: 14px;
+        height: 220px;
+        overflow: auto;
+    }
+    .ProductPage .contain .desc button {
+        width: 130px;
+        font-size: 16px;
+        margin: 0px 10px;
+    }
+}
+
+@media screen and (max-width:500px) {
+    #product {
+        width: 48%;
+        margin: 10px auto;
+    }
+    #product .productDesc .product-price {
+        font-size: 12px;
+    }
+    #product .productDesc .product-desc h1 {
+        font-size: 16px;
+        margin: 0px 3px;
+    }
+    #product .productDesc .product-desc p {
+        margin: 0px 3px;
+        font-size: 12px;
+    }
+    .ProductPage {
+        padding: 8px;
+        flex-direction: column;
+    }
+    .ProductPage .img {
+        float: left;
+        width: 60%;
+        height: auto;
+        margin: 25px auto 10px auto;
+    }
+    .ProductPage .contain {
+        width: 100%;
+    }
+    .ProductPage .contain .btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+    .ProductPage .contain .desc {
+        padding: 0px;
+        width: 100%;
+    }
+    .ProductPage .contain .desc h3 {
+        font-size: 24px;
+        width: max-content;
+        padding: 0px;
+        margin: 0px auto;
+    }
+    .ProductPage .contain .desc span {
+        font-size: 18px;
+        padding: 0px;
+        margin: 0px auto;
+        height: min-content;
+    }
+    .ProductPage .contain .desc p {
+        font-size: 14px;
+        padding-top: 10px;
+        margin: 0px auto;
+        width: 80%;
+    }
+    .ProductPage .contain .desc .actionBtn {
+        margin: 20px auto 20px auto;
+    }
+    .ProductPage .contain .desc button {
+        width: max-content;
+        padding: 10px 20px;
+        margin: 3px 5px;
+    }
 }

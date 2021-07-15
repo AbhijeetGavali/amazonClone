@@ -1,10 +1,480 @@
-#accountBox {
+.accountBox {
     display: flex;
     z-index: 1;
     height: 300px;
     width: 230px;
-    background-color: aqua;
+    background: linear-gradient(rgb(255, 29, 29), rgb(185, 0, 0));
     position: fixed;
     top: 9vh;
     right: 30px;
+    border-radius: 10px;
+}
+
+.accountBox .wlcLogin,
+.accountBox .loginForm {
+    align-self: center;
+    margin: 0px auto;
+    width: 80%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+.accountBox .wlcLogin p {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.accountBox .loginForm label {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-content: center;
+    align-content: center;
+}
+
+.accountBox .loginForm label h3 {
+    margin: 0px auto;
+}
+
+.accountBox .loginForm input {
+    color: #fff;
+    margin: 10px 0px;
+    width: 100%;
+    height: 40px;
+    padding: 10px 15px 10px 5px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid black;
+    background-color: transparent;
+    display: block;
+    position: relative;
+    left: 5px;
+}
+
+.accountBox .loginForm i {
+    display: flex;
+    font-size: 16px;
+    position: relative;
+    top: 20px;
+    right: 17px;
+}
+
+.accountBox .loginForm p {
+    margin: 10px 0px;
+    margin-bottom: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.accountBox .loginForm p:hover {
+    color: rgba(255, 255, 255, 0.767);
+}
+
+.accountBox .btn,
+#resister form .submit .btn {
+    color: aliceblue;
+    background-color: rgb(85, 85, 255);
+    font-size: 16px;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    width: 60%;
+    height: 30px;
+    margin: 0 auto;
+}
+
+.accountBox .btn:hover,
+#resister form .submit .btn:hover {
+    cursor: pointer;
+    background-color: rgba(24, 24, 73, 0.787);
+}
+
+.accountBox2 {
+    position: fixed;
+    width: 99%;
+    overflow: auto;
+    top: 50%;
+    left: 50%;
+    height: 90vh;
+    z-index: 11;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+#resister {
+    background: linear-gradient(rgb(24, 20, 255), rgb(84, 86, 255));
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    z-index: 11;
+    overflow-y: auto;
+    margin-bottom: auto;
+}
+
+#resister .info {
+    align-self: center;
+    margin: 0 auto;
+    width: 20%;
+    font-size: 30px;
+    color: rgb(209, 209, 209);
+}
+
+#resister .info h3 {
+    margin: 10px;
+}
+
+#resister .info p {
+    font-size: 22px;
+    margin: 30px 0px;
+}
+
+#resister form {
+    background-color: #fff;
+    align-self: center;
+    border-radius: 30px;
+    border-bottom-left-radius: 200px;
+    border-top-left-radius: 200px;
+    width: 60%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    margin: auto 20px auto 0px;
+}
+
+#resister form .wlc {
+    width: 100%;
+    align-self: flex-end;
+    height: 15%;
+    text-align: right;
+    position: absolute;
+    font-size: 40px;
+    text-decoration: underline;
+    transform: translateY(30px) translateX(-30px);
+}
+
+#resister form .form .warrning {
+    width: max-content;
+    align-self: center;
+    text-align: center;
+    background-color: rgba(255, 130, 130, 0.767);
+    padding: 2px 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.582);
+    border-radius: 10px;
+}
+
+#resister form .body {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100%;
+    margin-left: 30px;
+}
+
+#resister form .form,
+#resister form .submit {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+#resister form .form .name,
+#resister form .form .mail,
+#resister form .form .password {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: 20px 0px;
+}
+
+#resister form .form .mail {
+    width: 100%;
+}
+
+#resister form .form .name label,
+#resister form .form .mail label,
+#resister form .form .password label {
+    position: relative;
+    margin: 0 13px;
+    width: 100%;
+}
+
+#resister form .form .name label input,
+#resister form .form .mail label input,
+#resister form .form .password label input {
+    height: 30px;
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+}
+
+#resister form .submit {
+    width: 40%;
+    padding: 50px;
+}
+
+#resister form .submit label {
+    margin: 0 auto;
+    min-width: 180px;
+    margin-bottom: 30px;
+}
+
+#resister form .submit input {
+    margin-right: 10px;
+}
+
+#resister form .submit .btn {
+    width: 100%;
+    cursor: pointer;
+}
+
+#userDashboard {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    height: 100%;
+    width: 100%;
+}
+
+#userDashboard #sideBar {
+    background-color: rgb(200, 200, 200);
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    border-right: 1px solid black;
+}
+
+#userDashboard #sideBar .i-l,
+#userDashboard #sideBar .i-1 {
+    align-self: center;
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    width: 70%;
+    text-align: center;
+    padding: 5px 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid black;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+#userDashboard #sideBar .i-l {
+    border: none;
+}
+
+#userDashboard #sideBar .i-1:hover {
+    border: none;
+    box-shadow: 5px 10px 10px rgba(22, 4, 4, 0.705);
+}
+
+#userProfile {
+    background-color: #fff;
+    width: 80%;
+}
+
+#userDashboard #userProfile #sideBar1 {
+    background-color: rgb(200, 200, 200);
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    text-align: center;
+    border-bottom: 1px solid black;
+}
+
+#userDashboard #userProfile #sideBar1 h4 {
+    cursor: pointer;
+    margin: auto;
+    background-color: rgb(119, 119, 119);
+    padding: 7px 13px;
+    border-radius: 15px;
+    color: rgb(211, 211, 211);
+}
+
+#userDashboard #userProfile #sideBar1 h4:hover {
+    background-color: rgb(139, 139, 139);
+    color: rgb(90, 90, 90);
+    box-shadow: 3px 2px 10px black;
+}
+
+#userDashboard #userProfile #mainUserBody .shippingDetails,
+#userDashboard #userProfile #mainUserBody .paymentDetail,
+#userDashboard #userProfile #mainUserBody .userProfile {
+    height: calc(100vh - 50px);
+    width: 100%;
+    background-color: rgb(200, 200, 200);
+}
+
+#userDashboard #userProfile #mainUserBody .userProfile .container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+    padding-top: 30px;
+}
+
+#userDashboard #userProfile #mainUserBody .userProfile .container .input {
+    margin-top: 20px;
+}
+
+#userDashboard #userProfile #mainUserBody .userProfile .container .btn-1 {
+    cursor: pointer;
+}
+
+#userDashboard #userProfile #mainUserBody .userProfile .container .btn {
+    margin-top: 30px;
+}
+
+.blocked {
+    cursor: not-allowed;
+}
+
+#acc-dash {
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    align-items: flex-end;
+}
+
+#userDashboard .img,
+#acc-dash .img {
+    background-color: #fff;
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    font-size: 60px;
+    border-radius: 50%;
+    align-self: center;
+    margin: 30px auto 20px auto;
+    border: 2px solid black;
+}
+
+#acc-dash p {
+    width: 100%;
+    margin: 10px auto 5px auto;
+    text-align: center;
+    font-size: 14px;
+    text-decoration: underline;
+}
+
+#acc-dash button {
+    width: 80%;
+    margin-top: 10px;
+    padding: 3px 10px;
+    background-color: transparent;
+    text-decoration: underline;
+    font-size: 14px;
+}
+
+#acc-dash button:hover {
+    background-color: rgba(90, 0, 0, 0.226);
+}
+
+@media screen and (max-width:1024px) {
+    #resister {
+        flex-direction: column;
+    }
+    #resister .info {
+        align-self: center;
+        margin: 0 auto;
+        margin-top: 30px;
+        width: 300px;
+        font-size: 30px;
+    }
+    #resister .info h3 {
+        margin: 10px;
+        font-size: 26px;
+    }
+    #resister .info p {
+        font-size: 18px;
+        margin: 10px 0px;
+    }
+    #resister form {
+        width: 90%;
+        margin: 0 auto;
+        height: 50vh;
+        margin-top: 40px;
+        border-top-left-radius: 150px;
+        border-bottom-left-radius: 150px;
+    }
+    #resister form .wlc {
+        height: 10%;
+        font-size: 24px;
+    }
+    #resister form .body {
+        font-size: 11px;
+    }
+    #resister form .form {
+        margin-left: 30px;
+    }
+    #resister form .submit {
+        margin-left: 0px;
+        padding: 20px 0px;
+        font-size: 14px;
+    }
+    #resister form .submit .btn {
+        width: 80%;
+    }
+}
+
+@media screen and (min-width: 100px) and (max-width:500px) {
+    #resister .info {
+        background-color: rgba(124, 122, 255, 0.349);
+        margin: 50px auto;
+        width: max-content;
+        border-radius: 100px;
+        padding: 30px 50px;
+    }
+    #resister .info h3 {
+        width: 250px;
+        margin: 10px auto;
+    }
+    #resister .info p {
+        width: 280px;
+        margin: 20px auto;
+    }
+    #resister form {
+        margin: 0px auto;
+        height: max-content;
+        flex-direction: column;
+        border-radius: 30px;
+    }
+    #resister form .wlc {
+        display: block;
+        width: max-content;
+        margin: 0px auto;
+        position: relative;
+        margin-top: 30px;
+        transform: translateY(0px) translateX(0px);
+    }
+    #resister form .body {
+        flex-direction: column;
+        font-size: 14px;
+        margin: 0px;
+        width: 100%;
+    }
+    #resister form .form,
+    #resister form .submit {
+        width: 80%;
+        margin: 0px auto;
+    }
+    #resister form {
+        margin-bottom: 200px;
+    }
+    #resister form::after {
+        content: "Please read full terms and for any query contact us via help@ecommerce.com";
+        transform: translateX(20px) translateY(130px);
+    }
 }

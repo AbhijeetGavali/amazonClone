@@ -1,28 +1,78 @@
 .category {
+    height: 90vh;
     position: sticky;
     top: 10vh;
-    min-height: 90vh;
     padding: 15px 20px;
-    text-align: center;
     width: 250px;
     float: left;
     background-color: rgb(123, 121, 255);
 }
 
 .category h3 {
+    width: max-content;
     font-size: 28px;
+    margin: 10px auto;
 }
 
 .category .categories li {
     list-style: none;
+    width: max-content;
 }
 
-.category .categories .item {
-    background-color: transparent;
-    width: 100%;
+.category .categories li .item {
+    width: max-content;
+    color: rgb(9, 5, 51);
     padding: 10px 0;
     font-size: 20px;
     outline: none;
     border: none;
     cursor: pointer;
+}
+
+@media screen and (max-width:1024px) {
+    .category {
+        width: 100%;
+        float: none;
+        height: max-content;
+        padding: 15px 3px;
+    }
+    .category .categories {
+        display: flex;
+        flex-direction: row;
+        width: content;
+        overflow-x: auto;
+    }
+    .category .categories li {
+        border-radius: 50px;
+        margin: 0px 10px;
+        margin-top: 5px;
+        padding: 8px 13px;
+        background-color: rgba(9, 69, 121, 0.486);
+        width: max-content;
+    }
+    .category h3 {
+        font-size: 18px;
+        padding: 0;
+        margin: 0px auto;
+    }
+    .category .categories li .item {
+        width: max-content;
+        color: rgba(255, 255, 255, 0.76);
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 100px) and (max-width:500px) {
+    .category {
+        padding: 10px 3px;
+    }
+    .category h3 {
+        font-size: 16px;
+        padding: 0;
+        margin: 0px auto;
+    }
+    .category .categories li .item {
+        padding: 3px 7px;
+        font-size: 12px;
+    }
 }

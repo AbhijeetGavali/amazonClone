@@ -28,7 +28,7 @@ export default function ForgotPassword({ login }) {
         }
 
         // requesting from backend to collect User password credintials
-        axios.post('http://localhost/user/account/forget-password', forgotuser)
+        axios.post('http://localhost:3001/user/account/forget-password', forgotuser)
             .then(data => {
                 // user credits
                 var div = document.getElementById('warrning');

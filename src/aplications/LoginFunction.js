@@ -31,7 +31,7 @@ export default function LoginFunction(props) {
         }
 
         // requesting from backend to collect login credintials
-        axios.post('http://localhost/user/account/login', login)
+        axios.post('http://localhost:3001/user/account/login', login)
             .then(data => {
                 // user not found
                 if (data.data === 'notFound') {

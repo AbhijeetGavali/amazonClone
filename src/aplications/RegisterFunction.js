@@ -51,7 +51,7 @@ export default function RegisterFunction(props) {
             }
 
             // requesting from backend to create new user credintials
-            axios.post('http://localhost/user/account/register', register)
+            axios.post('http://localhost:3001/user/account/register', register)
                 .then(data => {
                     // user created
                     var div = document.getElementById('warrning');

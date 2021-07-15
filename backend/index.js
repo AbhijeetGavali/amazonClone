@@ -5,7 +5,7 @@ const cors = require('cors')
 const userRoute = require('./routes/user')
 const productRoute = require('./routes/product')
 
-const port = 80
+const port = 3001
 const app = express();
 
 mongoose.Promise = global.Promise;

@@ -49,7 +49,7 @@ export default function UserDetails({ props }) {
             }
 
             // requesting from backend to create new user credintials
-            axios.post('http://localhost/user/account/register/add', register)
+            axios.post('http://localhost:3001/user/account/register/add', register)
                 .then(data => {
                     // user created
                     var div = document.getElementById('warrning');

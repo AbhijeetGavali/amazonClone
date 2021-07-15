@@ -4,12 +4,12 @@ import LeaveMessage from './leaveMessage';
 import '../CSS/chatbot.css';
 
 var x = 0;
-// var today = new Date();
-// var time = today.getHours();
-// var day = today.getDay();
-// if (day === 0 || day === 6 || time < 9 || time > 16) {
-//   x = 1;
-// }
+var today = new Date();
+var time = today.getHours();
+var day = today.getDay();
+if (day === 0 || day === 6 || time < 9 || time > 16) {
+  x = 1;
+}
 
 function Chatbot() {
   function chatStartWlcPage() {

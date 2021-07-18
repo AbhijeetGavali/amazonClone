@@ -124,7 +124,7 @@ router.route('/detail/payment').post((req, res) => {
         .then(paymentDetail => {
             // if user does not have payment details 
             if (paymentDetail === null) {
-                res.send('User does not have payment details.')
+                res.send('notFound')
             }
 
             // if user have payment details
@@ -171,7 +171,7 @@ router.route('/detail/payment/add').post((req, res) => {
                     .then(() => {
                         res.send('Payment Detail have Added sucssesfully')
                     })
-                    .catch(err => res.status(400).json('Error : ' + err));
+                    .catch(err => res.status(400).send('Error Accur during adding your details.'));
             } else {
                 req.send('Payment Detail Already exist')
             }
@@ -199,7 +199,7 @@ router.route('/detail/shipping').post((req, res) => {
                 res.json(userShippingDetail)
             }
         })
-        .catch(err => res.status(400).json('Error'));
+        .catch(err => res.status(400).send('Error accur during finding detail.'));
 });
 
 // adding details for fastest shipping
@@ -235,12 +235,12 @@ router.route('/detail/shipping/add').post((req, res) => {
                     .then(() => {
                         res.send('Shpping Detail have Added sucssesfully')
                     })
-                    .catch(err => res.status(400).json('Error : ' + err));
+                    .catch(err => res.status(400).send('Error accur during saving your details. '));
             } else {
                 req.send('Shpping Detail Already exist')
             }
         })
-        .catch(err => res.send('Error'));
+        .catch(err => res.send('Error ! please try again letter.'));
 });
 
 
@@ -273,7 +273,7 @@ router.route('/detail/cart/add').post((req, res) => {
 
                 // adding products to existing
                 CartDetail.findOneAndUpdate({ _id: userId }, { productId: cart.productId })
-                    .then(res.send('Updated !')).catch(err => res.send('Error !'))
+                    .then(res.send('Updated your cart !')).catch(err => res.send('Error !'))
             }
         })
         .catch(err => res.send('Error'));
@@ -300,16 +300,11 @@ router.route('/detail/cart').post((req, res) => {
             }
         })
         .catch(err => res.status(400).json('Error'));
-
-    CartDetail.findOne({ _id: userId })
-        .then(cart => {
-            res.json(cart)
-        })
 });
 
 
 // removing cart products because of completed the order
-router.route('/detail/cart/remove').post((req, res) => {
+router.route('/detail/cart/remove-all').post((req, res) => {
 
     // getting all parameters in variable for use 
     let userId = req.body.userId;
@@ -319,6 +314,34 @@ router.route('/detail/cart/remove').post((req, res) => {
         .then(res.send('Removed !')).catch(err => res.send('Error !'))
 });
 
+// removing cart product from cart
+router.route('/detail/cart/remove').post((req, res) => {
+
+    // getting all parameters in variable for use 
+    let userId = req.body.userId;
+    let productId = req.body.productId;
+
+    // checking  if cart exist for that user
+    CartDetail.findOne({ _id: userId })
+        .then(cart => {
+            if (cart === null) {
+                res.send('err')
+            } else {
+
+                // Removing the specified product from the cart 
+                for (var i = 0; i < cart.productId.length; i++) {
+                    if (cart.productId[i] === productId) {
+                        cart.productId = cart.productId(i, 1);
+                    }
+                }
+
+                // adding products to existing
+                CartDetail.findOneAndUpdate({ _id: userId }, { productId: cart.productId })
+                    .then(res.send('Updated your cart !')).catch(err => res.send('Error !'))
+            }
+        })
+        .catch(err => res.send('Error'));
+});
 
 // exporting the module 
 module.exports = router;

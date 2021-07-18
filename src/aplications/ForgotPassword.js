@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import {
     BrowserRouter as Router,
-    Route,
-    useParams,
-    useRouteMatch
+    // Route,
+    // useParams,
+    // useRouteMatch
 } from "react-router-dom";
 import { Redirect } from 'react-router-dom'
 import axios from 'axios';
@@ -42,7 +42,7 @@ export default function ForgotPassword({ login }) {
             .catch(err => console.log("Error : ", err))
     }
 
-    let { path, url } = useRouteMatch();
+    // let { path, url } = useRouteMatch();
     return (<Router>
         <Redirect to="/account/Forgot-password" />
         <div className="accountBox">

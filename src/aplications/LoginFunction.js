@@ -43,10 +43,10 @@ export default function LoginFunction(props) {
                 } else {
                     // user Found but Password not equal
                     if (data.data === 'Found' || data.data === 'Error') {
-                        var div = document.getElementById('warrning');
-                        div.classList = "warrning";
-                        div.innerHTML = 'Enter valid credintials !';
-                        div.style.backgroundColor = "rgba(75, 189, 75, 0.733)"
+                        var div1 = document.getElementById('warrning');
+                        div1.classList = "warrning";
+                        div1.innerHTML = 'Enter valid credintials !';
+                        div1.style.backgroundColor = "rgba(75, 189, 75, 0.733)"
                     } else {
                         // user loged in
                         props.setUserID(data.data._id);

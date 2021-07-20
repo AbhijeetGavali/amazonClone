@@ -89,7 +89,7 @@ export default function UserDetails({ props }) {
                         <div className="form">
 
                             {/* div for warning message  */}
-                            <div id="warrning"></div>
+                            <div id="warrning">{x}</div>
 
                             {/* name filed  */}
                             <div className="name">

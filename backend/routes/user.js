@@ -251,32 +251,37 @@ router.route('/detail/cart/add').post((req, res) => {
     let userId = req.body.userId;
     let productId = req.body.productId;
 
-    // checking  if cart exist for that user
-    CartDetail.findOne({ _id: userId })
-        .then(cart => {
-            if (cart === null) {
+    if (userId === null) {
+        res.send('Plese Log In')
+    } else {
 
-                // setting a new cart
-                const cartDetail = new CartDetail({
-                    _id: userId,
-                    productId: productId
-                });
+        // checking  if cart exist for that user
+        CartDetail.findOne({ _id: userId })
+            .then(cart => {
+                if (cart === null) {
 
-                // saving OR adding in database
-                cartDetail.save()
-                    .then(() => {
-                        res.send('Cart Detail have Added sucssesfully')
-                    })
-                    .catch(err => res.status(400).json('Error : ' + err));
-            } else {
-                cart.productId.push(productId)
+                    // setting a new cart
+                    const cartDetail = new CartDetail({
+                        _id: userId,
+                        productId: productId
+                    });
 
-                // adding products to existing
-                CartDetail.findOneAndUpdate({ _id: userId }, { productId: cart.productId })
-                    .then(res.send('Updated your cart !')).catch(err => res.send('Error !'))
-            }
-        })
-        .catch(err => res.send('Error'));
+                    // saving OR adding in database
+                    cartDetail.save()
+                        .then(() => {
+                            res.send('Cart Detail have Added sucssesfully')
+                        })
+                        .catch(err => res.status(400).json('Error : ' + err));
+                } else {
+                    cart.productId.push(productId)
+
+                    // adding products to existing
+                    CartDetail.findOneAndUpdate({ _id: userId }, { productId: cart.productId })
+                        .then(res.send("Updated your cart !")).catch(err => res.send('Error !'))
+                }
+            })
+            .catch(err => res.send('Error'));
+    }
 });
 
 

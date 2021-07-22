@@ -2,12 +2,14 @@ const router = require('express').Router();
 let Product = require('../updateDatabase/product.model');
 
 // route for getting product details
-router.route('/get').get((req, res) => {
+router.route('/get').post((req, res) => {
+
+    let ID = req.body.productId
 
     // GETTING CREDINTIAL OF THAT USETR 
-    Product.find()
+    Product.findOne({ _id: ID })
         .then(product => res.json(product))
-        .catch(err => res.status(400).json(err));
+        .catch(err => res.status(400).send("err"));
 });
 
 router.route('/add').post((req, res) => {

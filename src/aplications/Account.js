@@ -21,7 +21,7 @@ export default function Account(props) {
         <div>
             {
                 // dashbord renderning 
-                props.userID !== "" ? <DashBoard close={props.close} userID={props.userID} setUserID={props.setUserID}  userMail={props.userMail} userName={props.userName} />
+                props.userID !== null ? <DashBoard close={props.close} userID={props.userID} setUserID={props.setUserID}  userMail={props.userMail} userName={props.userName} />
 
                     // forgot password 
                     : forgotPassword ? <ForgotPassword login={setForgotPassword} />

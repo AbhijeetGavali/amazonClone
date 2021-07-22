@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 
 import Header from './templet/header';
@@ -11,18 +11,25 @@ import Chatbot from './aplications/chatbot';
 
 ReactDOM.render(
   <>
-    <Header />
-    <Hero />
-    <Body />
-    <Footer />
-    <Chatbot />
+    <App/>
   </>,
   document.getElementById('root')
 );
 
-function Body() {
+function App() {
+  const [userID, setUserID] = useState(null)
+  return (<>
+    <Header userID={userID} setUserID={setUserID} />
+    <Hero />
+    <Body userID={userID} />
+    <Footer />
+    <Chatbot />
+  </>)
+}
+
+function Body(props) {
   return (<>
     <Sidebar />
-    <SectionBody />
+    <SectionBody userID={props.userID} />
   </>)
 }

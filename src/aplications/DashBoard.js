@@ -8,7 +8,7 @@ import DashBoardMax from './DashboardMax'
 export default function DashBoard(props) {
 const [mini, setMini] = useState(true)
     function logout() {
-        props.setUserID('')
+        props.setUserID(null)
         return (<Redirect to='/account' />);
     }
 

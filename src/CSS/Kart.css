@@ -6,6 +6,16 @@
     max-height: 80vh;
     overflow-y: auto;
     width: 300px;
-    height: 50vh;
     z-index: 1;
+    height: 60vh;
+    overflow: hidden;
+    padding: 50px 10px;
+}
+
+.cartBox {
+    background-color: black;
+    color: aliceblue;
+    height: 100%;
+    overflow: auto;
+    padding: 0px 2px;
 }
